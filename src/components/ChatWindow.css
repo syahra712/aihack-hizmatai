@@ -1,0 +1,122 @@
+/* ── Wrapper ─────────────────────────────────────────── */
+/* .chat-column owns the scroll; this is a plain flex child */
+.chat-window-wrap { position: relative; }
+
+.chat-window {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 16px 0 8px;
+  /* No artificial spacer — messages flow naturally top→bottom.
+     Auto-scroll handles anchoring to latest content. */
+}
+
+@media (max-width: 768px) {
+  .chat-window { gap: 10px; }
+}
+
+/* ── Message rows ────────────────────────────────────── */
+.msg-row { display: flex; align-items: flex-end; gap: 8px; }
+.msg-row.user { flex-direction: row-reverse; }
+
+/* Timestamps */
+.msg-meta { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 2px; }
+.msg-time { font-size: 10px; color: var(--text3); white-space: nowrap; }
+.user-meta { align-items: flex-end; }
+.ai-meta   { align-items: flex-start; }
+
+/* ── Avatars ─────────────────────────────────────────── */
+.avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.ai-avatar {
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--teal) 100%);
+  box-shadow: 0 0 12px rgba(16,185,129,0.38); color: white;
+}
+.user-avatar {
+  background: var(--glass-mid); border: 1px solid var(--glass-border2); color: var(--text2);
+}
+
+/* ── Bubbles ─────────────────────────────────────────── */
+.bubble {
+  max-width: 74%; padding: 11px 15px; border-radius: 18px;
+  font-size: 14px; line-height: 1.62;
+}
+
+@media (max-width: 768px) {
+  .bubble { max-width: 86%; font-size: 15px; padding: 12px 14px; }
+  .avatar { width: 30px; height: 30px; }
+}
+
+/* Flutter: LinearGradient [#00D4AA, #00B894] for user */
+.user-bubble {
+  background: linear-gradient(135deg, var(--teal), var(--emerald));
+  color: white; border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0,184,148,0.25);
+}
+
+/* Flutter: AppColors.surface (white) + AppShadows.soft for AI */
+.ai-bubble {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text); border-bottom-left-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Status chip ─────────────────────────────────────── */
+.status-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid color-mix(in srgb, var(--chip-color) 60%, transparent);
+  background: color-mix(in srgb, var(--chip-color) 10%, transparent);
+  color: var(--chip-color);
+  border-radius: 20px; padding: 3px 10px;
+  font-size: 11px; font-weight: 600; margin-bottom: 8px;
+}
+.status-chip-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: currentColor; flex-shrink: 0;
+}
+
+.bubble-text strong { color: var(--emerald-light); }
+
+/* ── Typing indicator ────────────────────────────────── */
+.typing-bubble { display: flex; align-items: center; gap: 10px; padding: 13px 16px; }
+.typing-dots { display: flex; gap: 4px; }
+.typing-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--emerald); animation: pulse 1.2s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+.typing-label { font-size: 12px; color: var(--text3); font-style: italic; }
+
+/* ── Scroll-to-bottom button — fixed above input bar ─── */
+.scroll-to-bottom {
+  position: fixed;
+  bottom: calc(var(--bottom-nav-h, 0px) + var(--safe-bottom, 0px) + 88px);
+  left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text2); cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.scroll-to-bottom:hover {
+  background: var(--emerald-bg); border-color: rgba(0,184,148,0.35);
+  color: var(--emerald); transform: translateX(-50%) scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-bottom {
+    bottom: calc(var(--bottom-nav-h) + var(--safe-bottom) + 72px);
+  }
+}
+
+/* ── Rich text ──────────────────────────────────────────── */
+.bubble-line { margin: 0 0 4px; line-height: 1.6; }
+.bubble-line:last-child { margin-bottom: 0; }
+.msg-list { padding-left: 18px; margin: 4px 0; }
+.msg-list li { margin-bottom: 3px; line-height: 1.6; }
+.bubble-text strong { color: var(--emerald-light); }

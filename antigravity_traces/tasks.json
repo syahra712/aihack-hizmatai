@@ -1,0 +1,374 @@
+{
+  "project": "HizmatAI",
+  "generated_by": "Antigravity",
+  "session_start": "2026-05-17T14:30:00+05:00",
+  "session_end": "2026-05-20T02:36:00+05:00",
+  "total_tasks": 42,
+  "completed": 42,
+  "in_progress": 0,
+  "pending": 0,
+  "tasks": [
+    {
+      "id": "T001",
+      "title": "Initialize project repository and folder structure",
+      "status": "completed",
+      "phase": "Setup",
+      "completed_at": "2026-05-17T14:45:00+05:00",
+      "files_changed": ["package.json", "vite.config.js", "index.html", ".gitignore"]
+    },
+    {
+      "id": "T002",
+      "title": "Set up FastAPI backend with CORS and base routes",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-17T15:10:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py", "hizmat_ai/backend/requirements.txt"]
+    },
+    {
+      "id": "T003",
+      "title": "Define mock provider dataset (25 providers, 3 cities, 6 categories)",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-17T15:30:00+05:00",
+      "files_changed": ["hizmat_ai/backend/providers.json"]
+    },
+    {
+      "id": "T004",
+      "title": "Implement IntentAgent — run_intent_agent() with multilingual NLP",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T16:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T005",
+      "title": "Implement DiscoveryAgent — discover_providers() with zone fallback (Scenario B)",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T16:20:00+05:00",
+      "files_changed": ["hizmat_ai/backend/adk_orchestrator.py"]
+    },
+    {
+      "id": "T006",
+      "title": "Implement RankAgent — 6-factor weighted scoring with haversine distance",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T16:45:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py", "hizmat_ai/backend/haversine.py"]
+    },
+    {
+      "id": "T007",
+      "title": "Implement PriceAgent — PKR dynamic quote with 5 fee components",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T17:10:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T008",
+      "title": "Implement BookingAgent — slot validation, double-booking guard, HMZ ref generation",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T17:35:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T009",
+      "title": "Implement FollowupAgent — cancel_by_provider, dispute, status_update, feedback actions",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T17:50:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T010",
+      "title": "Wire up Google ADK LlmAgent orchestrator with all 6 ADK tool functions",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-17T18:20:00+05:00",
+      "files_changed": ["hizmat_ai/backend/adk_orchestrator.py"]
+    },
+    {
+      "id": "T011",
+      "title": "Expose /chat POST endpoint routing through ADK orchestrator with direct-pipeline fallback",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-17T18:40:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py"]
+    },
+    {
+      "id": "T012",
+      "title": "Add granular endpoints: /intent, /rank, /price, /book, /followup, /trace, /scenario",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-17T19:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py"]
+    },
+    {
+      "id": "T013",
+      "title": "Bootstrap React/Vite frontend project with Firebase SDK",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-17T23:48:00+05:00",
+      "files_changed": ["package.json", "vite.config.js", "src/main.jsx", "src/App.jsx", "src/firebase.js"]
+    },
+    {
+      "id": "T014",
+      "title": "Design global CSS design system — dark theme #0D0D0D, teal #00BFA5, glassmorphism",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T00:30:00+05:00",
+      "files_changed": ["src/index.css", "src/App.css"]
+    },
+    {
+      "id": "T015",
+      "title": "Build Header component with active agent indicator and trace toggle",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T01:00:00+05:00",
+      "files_changed": ["src/components/Header.jsx"]
+    },
+    {
+      "id": "T016",
+      "title": "Build ChatWindow component with role-based bubbles and typing indicator",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T02:00:00+05:00",
+      "files_changed": ["src/components/ChatWindow.jsx"]
+    },
+    {
+      "id": "T017",
+      "title": "Build AgentTrace panel — staggered CSS animations, 150ms per step",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T03:00:00+05:00",
+      "files_changed": ["src/components/AgentTrace.jsx"]
+    },
+    {
+      "id": "T018",
+      "title": "Build ProviderPicker — top-3 cards with score, rating, distance, why_chosen badge",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T04:00:00+05:00",
+      "files_changed": ["src/components/ProviderPicker.jsx"]
+    },
+    {
+      "id": "T019",
+      "title": "Build BookingCard — confirmation receipt with HMZ ref, timeline, cancel + pay actions",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T04:30:00+05:00",
+      "files_changed": ["src/components/BookingCard.jsx"]
+    },
+    {
+      "id": "T020",
+      "title": "Build BookingHistory — modal with past bookings, Firestore + localStorage persistence",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T05:00:00+05:00",
+      "files_changed": ["src/components/BookingHistory.jsx"]
+    },
+    {
+      "id": "T021",
+      "title": "Build DemoBar — 4 scenario chips (A/B/C/D) for hackathon presentation",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T05:30:00+05:00",
+      "files_changed": ["src/components/DemoBar.jsx"]
+    },
+    {
+      "id": "T022",
+      "title": "Build HeroSuggestions — sample prompts in 4 languages (Roman Urdu, Urdu, English, Mixed)",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T06:00:00+05:00",
+      "files_changed": ["src/components/HeroSuggestions.jsx"]
+    },
+    {
+      "id": "T023",
+      "title": "Build Toast notification system with 3.5s auto-dismiss",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T06:15:00+05:00",
+      "files_changed": ["src/components/Toast.jsx"]
+    },
+    {
+      "id": "T024",
+      "title": "Build Icons.jsx — custom SVG icon set + PaymentSheet + AuthModal components",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T06:30:00+05:00",
+      "files_changed": ["src/components/Icons.jsx", "src/components/PaymentSheet.jsx", "src/components/AuthModal.jsx"]
+    },
+    {
+      "id": "T025",
+      "title": "Implement agentEngine.js — full 6-agent pipeline in JavaScript, zero backend dependency",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T08:00:00+05:00",
+      "files_changed": ["src/agents/agentEngine.js", "src/agents/backendApi.js"]
+    },
+    {
+      "id": "T026",
+      "title": "Wire all components into App.jsx — two-phase flow, session management, quick replies, memory bubble",
+      "status": "completed",
+      "phase": "Frontend",
+      "completed_at": "2026-05-18T09:30:00+05:00",
+      "files_changed": ["src/App.jsx", "src/hooks/useAuth.js", "src/hooks/useBookings.js"]
+    },
+    {
+      "id": "T027",
+      "title": "Test end-to-end: Urdu + Roman Urdu + English messages through full pipeline",
+      "status": "completed",
+      "phase": "Testing",
+      "completed_at": "2026-05-18T14:00:00+05:00",
+      "files_changed": []
+    },
+    {
+      "id": "T028",
+      "title": "Fix CORS headers — add http://localhost:8080 for Flutter web origin",
+      "status": "completed",
+      "phase": "Bug Fix",
+      "completed_at": "2026-05-19T10:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py"]
+    },
+    {
+      "id": "T029",
+      "title": "Initialize Flutter customer app with Riverpod + GoRouter + Firebase",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-18T20:00:00+05:00",
+      "files_changed": ["hizmat_ai/flutter_app/pubspec.yaml", "hizmat_ai/flutter_app/lib/main.dart", "hizmat_ai/flutter_app/lib/firebase_options.dart"]
+    },
+    {
+      "id": "T030",
+      "title": "Build Flutter screens: Splash, Onboarding, RoleSelector, Login, Home, Chat",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-18T22:00:00+05:00",
+      "files_changed": [
+        "hizmat_ai/flutter_app/lib/features/splash/splash_screen.dart",
+        "hizmat_ai/flutter_app/lib/features/onboarding/onboarding_screen.dart",
+        "hizmat_ai/flutter_app/lib/features/onboarding/role_selector_screen.dart",
+        "hizmat_ai/flutter_app/lib/features/auth/login_screen.dart",
+        "hizmat_ai/flutter_app/lib/features/home/home_screen.dart"
+      ]
+    },
+    {
+      "id": "T031",
+      "title": "Build Flutter services: ApiService, BookingService, MockAiService (26 providers offline)",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-18T22:30:00+05:00",
+      "files_changed": [
+        "hizmat_ai/flutter_app/lib/services/api_service.dart",
+        "hizmat_ai/flutter_app/lib/services/booking_service.dart",
+        "hizmat_ai/flutter_app/lib/services/mock_ai_service.dart",
+        "hizmat_ai/flutter_app/lib/services/firebase_service.dart"
+      ]
+    },
+    {
+      "id": "T032",
+      "title": "Define Flutter data models: ServiceProvider, Booking (BookingStatus enum), ChatMessage, WorkerProfile",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-18T23:00:00+05:00",
+      "files_changed": [
+        "hizmat_ai/flutter_app/lib/models/provider.dart",
+        "hizmat_ai/flutter_app/lib/models/booking.dart",
+        "hizmat_ai/flutter_app/lib/models/chat_message.dart",
+        "hizmat_ai/flutter_app/lib/models/worker_profile.dart"
+      ]
+    },
+    {
+      "id": "T033",
+      "title": "Design Flutter theme — Primary #00B894 mint, Accent #6C5CE7 purple, Poppins font",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-18T23:30:00+05:00",
+      "files_changed": ["hizmat_ai/flutter_app/lib/core/theme.dart", "hizmat_ai/flutter_app/lib/core/constants.dart"]
+    },
+    {
+      "id": "T034",
+      "title": "Build Flutter customer app APK release + web output",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-19T00:00:00+05:00",
+      "files_changed": ["hizmat_ai/flutter_app/build/"]
+    },
+    {
+      "id": "T035",
+      "title": "Build Flutter Worker app — Phone Auth, job overlay, earnings dashboard, Urdu chat",
+      "status": "completed",
+      "phase": "Mobile",
+      "completed_at": "2026-05-19T16:00:00+05:00",
+      "files_changed": [
+        "hizmat_ai/flutter_worker_app/lib/features/worker/worker_home_screen.dart",
+        "hizmat_ai/flutter_worker_app/lib/features/worker/worker_auth_service.dart",
+        "hizmat_ai/flutter_worker_app/lib/features/worker/worker_firestore_service.dart"
+      ]
+    },
+    {
+      "id": "T036",
+      "title": "Integrate Firebase Firestore — providers, bookings, sessions collections + seed script",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-19T18:00:00+05:00",
+      "files_changed": [
+        "hizmat_ai/backend/seed_firestore.py",
+        "firestore.rules",
+        "firebase.json",
+        "firestore.indexes.json",
+        ".firebaserc"
+      ]
+    },
+    {
+      "id": "T037",
+      "title": "Integrate Stripe payments — /create-payment-intent + PaymentSheet React component",
+      "status": "completed",
+      "phase": "Backend",
+      "completed_at": "2026-05-19T20:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py", "src/components/PaymentSheet.jsx"]
+    },
+    {
+      "id": "T038",
+      "title": "Fix Roman Urdu NLP edge case — 'AC service chahiye' priority check before English fallback",
+      "status": "completed",
+      "phase": "Bug Fix",
+      "completed_at": "2026-05-19T12:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T039",
+      "title": "Fix peak-hour surge bug — midnight hours (00:00–03:00) incorrectly triggering 15% surcharge",
+      "status": "completed",
+      "phase": "Bug Fix",
+      "completed_at": "2026-05-19T13:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/agents.py"]
+    },
+    {
+      "id": "T040",
+      "title": "Add multi-turn session context — ContextAgent memory recall across turns in /intent endpoint",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-19T14:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/main.py"]
+    },
+    {
+      "id": "T041",
+      "title": "Tune ADK orchestrator system prompt — language mirroring, 'Aap' register, pipeline mandate",
+      "status": "completed",
+      "phase": "Agents",
+      "completed_at": "2026-05-19T22:00:00+05:00",
+      "files_changed": ["hizmat_ai/backend/adk_orchestrator.py"]
+    },
+    {
+      "id": "T042",
+      "title": "Write README, start.sh, run production build — all 4 demo scenarios verified end-to-end",
+      "status": "completed",
+      "phase": "Docs",
+      "completed_at": "2026-05-20T02:00:00+05:00",
+      "files_changed": ["README.md", "start.sh", "hizmat_ai/start.sh", "dist/"]
+    }
+  ]
+}

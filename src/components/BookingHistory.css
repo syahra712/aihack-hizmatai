@@ -1,0 +1,145 @@
+/* ── Booking History — Desktop: side drawer ────────────────── */
+.bh-overlay {
+  position: fixed; inset: 0; z-index: var(--z-modal);
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+  display: flex; justify-content: flex-end;
+}
+.bh-drawer {
+  width: 380px; max-width: 92vw; height: 100%;
+  background: var(--surface); border-left: 1px solid var(--glass-border);
+  display: flex; flex-direction: column; overflow: hidden;
+  box-shadow: -4px 0 32px rgba(0,0,0,0.10);
+}
+
+/* ── Mobile: transform into bottom sheet ────────────────────── */
+@media (max-width: 768px) {
+  .bh-overlay {
+    align-items: flex-end; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  .bh-drawer {
+    width: 100%; max-width: 100%;
+    height: auto; max-height: 82dvh;
+    border-left: none;
+    border-radius: 22px 22px 0 0;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: none;
+    box-shadow: 0 -8px 64px rgba(0,0,0,0.7);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    animation: slideUpSheet 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @keyframes slideUpSheet {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+  /* Drag handle on mobile */
+  .bh-drawer::before {
+    content: '';
+    display: block;
+    width: 40px; height: 4px; border-radius: 2px;
+    background: var(--glass-border2);
+    margin: 10px auto 0;
+    flex-shrink: 0;
+  }
+}
+
+.bh-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px; border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+.bh-head-left {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--text); font-family: 'Poppins', sans-serif;
+}
+.bh-head-left h3 { font-size: 16px; font-weight: 700; }
+.bh-close {
+  width: 30px; height: 30px; border-radius: 8px; border: none;
+  background: var(--glass-mid); border: 1px solid var(--glass-border);
+  color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.bh-close:hover { background: var(--glass-strong); color: var(--text); }
+
+.bh-empty {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  color: var(--text3); font-size: 14px;
+}
+.bh-list {
+  flex: 1; overflow-y: auto; padding: 12px 16px; list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.bh-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--surface2); border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm); padding: 12px;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.bh-item:hover { background: var(--surface); border-color: rgba(0,184,148,0.25); box-shadow: var(--shadow); }
+.bh-emoji {
+  font-size: 22px; width: 36px; height: 36px; border-radius: 10px;
+  background: var(--glass-mid); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.bh-item-info { flex: 1; min-width: 0; }
+.bh-item-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; margin-bottom: 4px;
+}
+.bh-provider { font-size: 13px; font-weight: 600; color: var(--text); truncate: true; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bh-total { font-size: 12px; font-weight: 600; color: var(--emerald); flex-shrink: 0; }
+.bh-item-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.bh-item-meta span { display: flex; align-items: center; gap: 3px; font-size: 10px; color: var(--text3); }
+.bh-id { font-size: 10px; color: var(--text3); font-family: monospace; }
+
+/* ── Filter tabs ─────────────────────────────────────── */
+.bh-filters {
+  display: flex; gap: 6px; padding: 10px 16px;
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0; overflow-x: auto;
+}
+.bh-filter-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px; border-radius: 20px; border: 1px solid var(--glass-border);
+  background: var(--surface2); color: var(--text2);
+  font-size: 12px; font-weight: 500; font-family: 'Inter', sans-serif;
+  cursor: pointer; white-space: nowrap; transition: all 0.15s;
+}
+.bh-filter-btn:hover { border-color: var(--emerald); color: var(--emerald); }
+.bh-filter-active {
+  background: var(--emerald-bg); border-color: var(--emerald);
+  color: var(--emerald); font-weight: 600;
+}
+.bh-filter-count {
+  font-size: 10px; font-weight: 700; background: rgba(0,0,0,0.06);
+  border-radius: 8px; padding: 1px 6px; min-width: 18px; text-align: center;
+}
+.bh-filter-active .bh-filter-count { background: rgba(0,184,148,0.15); }
+
+/* ── Header count badge ──────────────────────────────── */
+.bh-count {
+  font-size: 11px; font-weight: 700; background: var(--emerald);
+  color: #fff; border-radius: 8px; padding: 1px 7px;
+}
+
+/* ── Status badges ───────────────────────────────────── */
+.bh-status {
+  font-size: 10px; font-weight: 700; padding: 2px 8px;
+  border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; flex-shrink: 0;
+}
+.bh-status-paid { background: var(--emerald-bg); color: var(--emerald); }
+.bh-status-unpaid { background: #FFF8E1; color: #F59E0B; }
+.bh-status-cancelled { background: #FEE2E2; color: #EF4444; }
+
+/* ── Price row ───────────────────────────────────────── */
+.bh-item-price { margin: 2px 0; }
+.bh-total-strike { text-decoration: line-through; color: var(--text3); }
+
+/* ── Cancelled item styling ──────────────────────────── */
+.bh-item-cancelled { opacity: 0.6; }
+.bh-item-cancelled:hover { opacity: 0.85; }
+
+@keyframes slide-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.slide-right { animation: slide-right 0.3s cubic-bezier(0.4, 0, 0.2, 1); }

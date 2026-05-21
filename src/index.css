@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── Brand — Flutter AppColors palette ───────────────── */
+  --emerald:        #00B894;
+  --emerald-dark:   #009B7D;
+  --emerald-light:  #00D4AA;
+  --emerald-bg:     #E8FBF5;
+  --teal:           #00D4AA;
+  --saffron:        #FFAA33;
+  --rose:           #FF5252;
+  --indigo:         #6C5CE7;   /* Flutter accent */
+  --violet:         #6C5CE7;
+
+  /* ── Background — LIGHT (Flutter AppColors.background) ─ */
+  --bg:    #F6F7FB;
+  --bg2:   #ECEEF5;
+  --bg3:   #E4E7F2;
+
+  /* ── Surfaces (Flutter AppColors.surface / surfaceLight) */
+  --surface:  #FFFFFF;
+  --surface2: #F0F2F8;
+
+  /* ── Glass — translucent WHITE on light background ────── */
+  --glass:        rgba(255,255,255,0.60);
+  --glass-mid:    rgba(255,255,255,0.82);
+  --glass-strong: rgba(255,255,255,0.96);
+  --glass-border: rgba(0,0,0,0.06);      /* Flutter AppColors.cardBorder */
+  --glass-border2:rgba(0,0,0,0.09);
+  --blur:         blur(20px);
+  --blur-strong:  blur(32px);
+
+  /* ── Text — DARK (Flutter AppColors.text / textMuted) ─── */
+  --text:  #1A1D26;
+  --text2: #7C8DB0;
+  --text3: #9BABC0;
+
+  /* ── Misc ─────────────────────────────────────────────── */
+  --radius:    16px;
+  --radius-sm: 10px;
+  --radius-xs: 7px;
+
+  /* ── Shadows — soft, like Flutter AppShadows.soft/card ── */
+  --shadow:     0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+  --glow:       0 4px 20px rgba(0,184,148,0.20);
+  --glow-strong:0 8px 32px rgba(0,184,148,0.32);
+
+  /* ── Z-index scale ────────────────────────────────────── */
+  --z-base:    10;
+  --z-overlay: 20;
+  --z-modal:   30;
+  --z-payment: 40;
+  --z-toast:   50;
+
+  /* ── Mobile / safe-area ───────────────────────────────── */
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left:   env(safe-area-inset-left,  0px);
+  --safe-right:  env(safe-area-inset-right, 0px);
+  --bottom-nav-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  font-size: 15px;
+  /* Prevent pull-to-refresh hijacking bottom sheet swipe */
+  overscroll-behavior-y: none;
+}
+
+/* Mobile: bump body font to 16px (prevents iOS auto-zoom on input focus) */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+}
+
+/* ── Typography — Poppins for display text ─────────── */
+h1, h2, h3, .brand-name, .hero-title, .bc-title, .trace-panel-header h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.20); }
+
+/* ── Focus-visible (skill: keyboard nav) ────────────── */
+:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Animations ─────────────────────────────────────── */
+@keyframes fadeUp    { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+@keyframes pulse     { 0%,100% { opacity:1; } 50% { opacity:0.45; } }
+@keyframes spin      { to { transform:rotate(360deg); } }
+@keyframes slideIn   { from { transform:translateX(-8px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+@keyframes bounceIn  { 0% { transform:scale(0.82); opacity:0; } 60% { transform:scale(1.04); } 100% { transform:scale(1); opacity:1; } }
+@keyframes glow      { 0%,100% { box-shadow:0 0 18px rgba(16,185,129,0.2); } 50% { box-shadow:0 0 38px rgba(16,185,129,0.5); } }
+@keyframes shimmer   { from { background-position:-200% 0; } to { background-position:200% 0; } }
+@keyframes gradShift { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+
+.fade-up   { animation: fadeUp  0.38s ease forwards; }
+.fade-in   { animation: fadeIn  0.28s ease forwards; }
+.bounce-in { animation: bounceIn 0.4s cubic-bezier(.36,.07,.19,.97) forwards; }
+
+/* ── Reduced-motion (skill requirement) ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
